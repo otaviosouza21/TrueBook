@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from '../assets/css/Livro.module.css';
 import Button from './Button';
-const Livro = () => {
+import { GlobalContext } from './GlobalContext';
+
+const Livro = ({ preco }) => {
+  const { livro } = useContext(GlobalContext);
+
+  const buttonPosition = {
+    width: '90%',
+    margin: '0 auto',
+    position: 'absolute',
+    bottom: '-30px',
+    left: '5%',
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.livroImg}>
-        <span>R$ 99,99</span>
-        <span>10</span>
+        <span>{preco}</span>
+        <span>{livro.avalia}</span>
       </div>
       <div className={styles.conteudo}>
-        <h3>GreenSleave</h3>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur
-          accusamus dicta temporibus cumque voluptatum aspernatur
-        </p>
-        <span>Otavio Lucas</span>
+        <h3>{livro.titulo}</h3>
+        <p>{livro.descricao.slice(0, 250)}</p>
+        <span>{livro.autor}</span>
       </div>
-      <Button text="Comprar"/>
+      <Button text="Comprar" position={buttonPosition} />
     </section>
   );
 };

@@ -1,0 +1,13 @@
+label{
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+input{
+  border: solid 1px #dddbdb;
+  outline: none;
+  border-radius: 3px;
+  padding: 5px 16px;
+  min-width: 400px
+}

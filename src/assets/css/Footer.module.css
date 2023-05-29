@@ -1,0 +1,40 @@
+.container{
+  background-color: #E74C18;
+}
+
+.content{
+  display: grid;
+  max-width: 1400px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+
+  padding: 20px 0;
+  gap: 20px;
+}
+
+.content h2{
+  text-align: center;
+}
+
+.content img{
+  width: 50px;
+}
+
+.menu{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.menu ul li:first-child{
+  font-weight: bold;
+}
+
+.redes{
+  display: flex;
+  justify-content: space-between;
+
+  
+}

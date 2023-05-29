@@ -1,0 +1,43 @@
+.container{
+  overflow: hidden;
+  position: relative;
+}
+
+.content{
+  display: flex;
+  transition: transform .3s ease;
+}
+
+.item{
+  width: 80%;
+  flex-shrink: 0;
+  margin:  0 10%;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  max-width: 80%;
+  margin: 0 auto;
+
+}
+.nav span{
+ 
+  position: absolute;
+  cursor: pointer;
+}
+
+.nav span img{
+  width: 50px;
+}
+
+.nav span:first-child{
+  top: 40%;
+  transform: rotate(180deg);
+}
+
+.nav span:last-child{
+  top: 40%;
+  right: 150px;
+}
