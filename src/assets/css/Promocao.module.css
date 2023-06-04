@@ -10,8 +10,8 @@
 }
 
 .content{
-  display: flex;
-  
+display: flex;
+
 }
 
 
@@ -27,6 +27,7 @@
   margin-left: 40px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 .infos span{

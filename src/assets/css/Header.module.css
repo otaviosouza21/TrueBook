@@ -1,6 +1,7 @@
 .container{
   background-color: #E74C18;
   margin-bottom: 25px;
+  position: relative;
 }
 
 .content{

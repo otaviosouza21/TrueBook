@@ -23,7 +23,6 @@
 
 }
 .nav span{
- 
   position: absolute;
   cursor: pointer;
 }
@@ -35,6 +34,7 @@
 .nav span:first-child{
   top: 40%;
   transform: rotate(180deg);
+  
 }
 
 .nav span:last-child{

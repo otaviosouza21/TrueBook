@@ -13,45 +13,53 @@ export const GlobalStorage = ({ children }) => {
     estado: '',
   });
 
-  const [livro, setLivro] = React.useState({
-    id: '',
-    titulo: '',
-    descricao: '',
-    autor: '',
-    capa: '',
-    avalia: '',
-  });
+  const [livro, setLivro] = React.useState('');
+  const [envia, setEnvia] = React.useState(false);
+  const [login, setLogin] = React.useState(false);
+  const [cart, setCart] = React.useState(false);
+  const [validado,setValidado] = React.useState(false)
+  const [livroNoCarrinho,setLivroNoCarrinho] = React.useState(null)
+  const [quantidade,setQuantidade] = React.useState(0)
 
   React.useEffect(() => {
-    const apiKey = 'AIzaSyAoTklFkAcgo6nbYIKMUHIIXgLZv-s-u_4';
-    const url = `https://www.googleapis.com/books/v1/volumes?q=*&key=${apiKey}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const { id } = data.items[0];
-        const { title, authors, averageRating, description, imageLinks } =
-          data.items[1].volumeInfo;
-        setLivro({
-          id,
-          titulo: title,
-          descricao: description,
-          autor: authors,
-          avalia: averageRating,
-          capa: imageLinks.smallThumbnail,
-        });
+    const fetchData = async () => {
+      try {
+        const apiKey = 'AIzaSyAoTklFkAcgo6nbYIKMUHIIXgLZv-s-u_4';
+        const url = `https://www.googleapis.com/books/v1/volumes?q=*&key=${apiKey}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        setLivro(data.items);
+        setValidado(true)
         console.log(livro);
-      })
-      .catch((error) => {
-        // Lidar com erros
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+
+    fetchData();
   }, []);
 
-  const [envia, setEnvia] = React.useState(false);
-
   return (
-    <GlobalContext.Provider value={{ form, setForm, envia, setEnvia, livro }}>
+    <GlobalContext.Provider
+      value={{
+        form,
+        setForm,
+        envia,
+        setEnvia,
+        livro,
+        setLivro,
+        login,
+        setLogin,
+        cart,
+        setCart,
+        livroNoCarrinho,
+        setLivroNoCarrinho,
+        quantidade,
+        setQuantidade,
+        validado,
+        setValidado
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

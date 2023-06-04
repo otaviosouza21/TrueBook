@@ -6,6 +6,9 @@ position: relative;
 transition: .3s;
 margin-bottom: 100px;
 margin-top: 50px;
+height: 550px;
+position: relative;
+border-radius: 3px;
 }
 
 
@@ -25,6 +28,7 @@ background-position: center ;
 background-size:  cover;
 height: 300px;
 border-radius: 3px 3px 0 0;
+
 }
 
 .livroImg span:first-child{
@@ -34,6 +38,7 @@ border-radius: 3px 3px 0 0;
   text-align: center;
   color: green;
   font-weight: bold;
+  border-radius: 3px;
 }
 
 .livroImg span:last-child{
@@ -42,7 +47,6 @@ border-radius: 3px 3px 0 0;
   font-weight: bold;
   border-radius: 5px;
   align-self: flex-end;
-
   padding: 10px;
 }
 
@@ -52,6 +56,8 @@ border-radius: 3px 3px 0 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 2;
+  border-radius: 0 0 3px 3px;
 }
 
 .conteudo h3{
@@ -69,3 +75,4 @@ border-radius: 3px 3px 0 0;
   font-weight: bold;
   color: black
 }
+

@@ -1,26 +1,38 @@
 import React from 'react';
-import book from '../assets/img/livro.jpg';
 import styles from '../assets/css/Promocao.module.css';
 import Button from './Button';
+import {GlobalContext} from './GlobalContext'
 
 
-const Promocao = () => {
+const Promocao = ({numeroPromo,preco}) => {
+  const {livro,validado} = React.useContext(GlobalContext)
+
+
+if(validado !== true){
+  return <p>Carregando...</p>
+}
+else {
+const promo = livro[numeroPromo].volumeInfo
+const precoReal = Number(preco)
+const precoPromo = precoReal + (precoReal * 0.20) 
   return (
     <div className={styles.container}>
       <section className={styles.content}>
         <div className={styles.livro}>
           <h3>Promoção Diaria</h3>
-          <img src={book} alt="Livro" />
+          <img src={promo.imageLinks.thumbnail} alt="Livro" />
         </div>
         <div className={styles.infos}>
-          <h2>O Menino do Dedo Verde</h2>
-          <span>R$ 110,90</span>
-          <p>R$ 99,90</p>
+          <h2>{promo.title}</h2>
+          <h3>{promo.authors}</h3>
+          <span>R$ {precoPromo.toFixed(2)}</span>
+          <p>R$ {precoReal}</p>
           <Button text="Comprar Agora" />
         </div>
       </section>
     </div>
   );
+}
 };
 
 export default Promocao;
